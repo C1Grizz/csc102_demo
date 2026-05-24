@@ -1,0 +1,38 @@
+/* Author: Chris Garza
+    Date: May 24, 2026
+    Description: Global external stylesheet applying layouts, spacing, and custom color themes.
+*/
+
+/* Body styles: Sets global page colors */
+body {
+    background-color: #121212; /* Deep dark slate background */
+    color: #e0e0e0;            /* Crisp off-white text for high readability */
+    font-family: Arial, sans-serif;
+}
+
+/* Header styles: Centers top titles */
+header {
+    text-align: center;
+}
+
+/* Navigation layout: Shifts menu to the left side and structures links */
+nav {
+    height: 600px;
+    width: 200px;
+    float: left;
+    padding: 5px;
+    line-height: 30px;
+}
+
+/* Meme Image positioning: Adjusts spacing from content elements */
+#memeImage {
+    margin-right: 200px;
+}
+
+/* Footer layout: Centers institutional data and shifts it clear of the float */
+footer {
+    text-align: center;
+    margin-right: 200px;
+    clear: both; /* Keeps footer neatly below the floating navigation panel */
+    padding-top: 20px;
+}
