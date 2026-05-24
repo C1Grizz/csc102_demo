@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icarus Orbit Casino - Hyper-Drive</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="code.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>🚀 Icarus Orbit Casino 🚀</h1>
+        <h3>Deep Space High-Stakes Risk Engine</h3>
+    </header>
+
+    <nav>
+        <h2>Navigation</h2>
+        <a href="./index.html" style="color: #4dabf7;">Home</a><br>
+        <a href="./boards.html" style="color: #4dabf7;">Boards</a><br>
+        <a href="./game.html" style="color: #4dabf7;">Play Game</a><br>
+    </nav>
+
+    <main>
+        <h2>Game Console: Hyper-Drive Overload</h2>
+        <p>Rules: Roll two plasma cells. If the power sum hits 7 or 11, the core overloads and you lose! Roll matching even numbers to successfully jump to hyperspace and win. Any other combination results in a sub-light cruise push.</p>
+
+        <form onsubmit="playHyperDrive(); return false;">
+            <label for="playerCallsign">Enter Pilot Callsign to Authenticate:</label><br>
+            <input type="text" id="playerCallsign" name="playerCallsign" placeholder="e.g., C1Grizz" required><br><br>
+            
+            <button type="submit">Initiate Core Roll</button>
+        </form>
+
+        <hr style="border-color: #444; margin: 20px 0;">
+
+        <h3>Console Readout Telemetry</h3>
+        <div id="gameTelemetry" style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; min-height: 50px;">
+            System idle. Awaiting authorization payload inputs...
+        </div>
+
+        <br>
+
+        <div id="statusReadout" style="color: #4dabf7; font-weight: bold;"></div>
+    </main>
+
+    <footer>
+        Chris Garza<br>
+        University of Advancing Technology<br>
+        2625 W. Baseline Rd.<br>
+        Tempe, AZ 85283<br>
+    </footer>
+
+</body>
+</html>
