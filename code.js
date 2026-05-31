@@ -19,7 +19,7 @@ function playHyperDrive() {
     var plasmaCell2 = Math.floor(Math.random() * 6) + 1;
 
     // Combine both numerical cell integer outputs together to produce the absolute operational power sum
-    var powerSum = plasmaCell1 - plasmaCell2;
+    var powerSum = plasmaCell1 + plasmaCell2;
 
     // Establish a baseline block variable string accumulator to capture structured HTML elements as data logs
     var logTemplate = "<h4>Active Pilot: " + callsignInput + "</h4>";
