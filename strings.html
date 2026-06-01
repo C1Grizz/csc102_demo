@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Secret Access Portal</title>
+    <style>
+        /* Creative Element: Retro Cyberpunk / Security Terminal Theme */
+        body {
+            /* Dark slate background for a classified, secret agent aesthetic */
+            background-color: #0d1117;
+            /* Modern, clean sans-serif font family for readability */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Center the security terminal container horizontally and vertically */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Occupy the full viewport height */
+            height: 100vh;
+            /* Remove default browser margins */
+            margin: 0;
+            /* Base text color (light gray for contrast) */
+            color: #c9d1d9;
+        }
+
+        /* Container styling for the secure login box layout */
+        .secure-container {
+            /* Darker gray background to pop out from the body canvas */
+            background-color: #161b22;
+            /* Add structural interior spacing padding */
+            padding: 30px;
+            /* Soft rounded corners for an excellent user experience */
+            border-radius: 12px;
+            /* A glowing green box shadow signifying a live security gate */
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+            /* Set a standard uniform width for the login card */
+            width: 350px;
+            /* Center-align headers and terminal status alerts */
+            text-align: center;
+            /* Explicit thin border defining the container edges */
+            border: 1px solid #30363d;
+        }
+
+        /* Styling for the main security heading */
+        h2 {
+            /* Neon terminal green color matching the UI style */
+            color: #00ff88;
+            /* Bottom spacing to separate cleanly from inputs */
+            margin-bottom: 20px;
+            /* Slight tracking/letter-spacing for a stylized title look */
+            letter-spacing: 1px;
+        }
+
+        /* Layout structure grouping labels and fields together uniformly */
+        .form-group {
+            /* Left-align specific fields for standard human data input flow */
+            text-align: left;
+            /* Spacing block pushing groups down neatly */
+            margin-bottom: 15px;
+        }
+
+        /* Structural form input label styles */
+        label {
+            /* Force labels onto their own distinct layout line */
+            display: block;
+            /* Padding separation below the label text */
+            margin-bottom: 5px;
+            /* Sleek, small micro-copy sizing */
+            font-size: 14px;
+            /* Muted slate text coloration */
+            color: #8b949e;
+        }
+
+        /* Inputs customized for an interactive user interface */
+        input[type="text"] {
+            /* Force input text fields to take full component width */
+            width: 100%;
+            /* Padding inside the input box for typing comfort */
+            padding: 10px;
+            /* Uniform rounded borders matching container aesthetics */
+            border-radius: 6px;
+            /* Dark embedded inputs fitting the spy theme profile */
+            border: 1px solid #30363d;
+            background-color: #0d1117;
+            /* Crisp white text for reader inputs */
+            color: #fff;
+            /* Prevent input stretching box padding models */
+            box-sizing: border-box;
+            /* Smooth animated transitions on active states */
+            transition: border-color 0.3s ease;
+        }
+
+        /* Interactive focus reaction highlight states */
+        input[type="text"]:focus {
+            /* Bright accent green glows on active selections */
+            border-color: #00ff88;
+            /* Strip default browser outlines away */
+            outline: none;
+        }
+
+        /* Main action execution button styling rules */
+        button {
+            /* Stretch full horizontal layout block */
+            width: 100%;
+            /* Comfortable size target for clicking or touch taps */
+            padding: 12px;
+            /* Strong neon styling choice */
+            background-color: #00ff88;
+            /* Dark font overlay for sharp legal accessibility contrast */
+            color: #0d1117;
+            /* Eliminate standard browser system button styling borders */
+            border: none;
+            /* Match form rounded borders */
+            border-radius: 6px;
+            /* Heavy typography weighting emphasizes structural execution */
+            font-weight: bold;
+            /* Flip pointer indicators on action target areas */
+            cursor: pointer;
+            /* Layout margin space separating fields safely */
+            margin-top: 10px;
+            /* Smooth color adjustments handling */
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hover action visual responses */
+        button:hover {
+            /* Transition to an intensely distinct shade of neon green */
+            background-color: #00e676;
+        }
+
+        /* Custom error message feedback styling canvas target */
+        #warningMessage {
+            /* Vibrant system red indicating validation alert warnings */
+            color: #ff7b72;
+            /* Legible presentation sizes */
+            font-size: 14px;
+            /* Generous padding space clearing structural boundaries */
+            margin-top: 15px;
+            /* Bold highlighting accents */
+            font-weight: 500;
+        }
+
+        /* Classified secret box styling layout variables */
+        #secretMessage {
+            /* Enforce absolute visibility hidden status on initial application load */
+            display: none;
+            /* Interior padding block margins */
+            padding: 15px;
+            /* High visibility dashed neon border wrap layout */
+            border: 2px dashed #00ff88;
+            /* Consistent border radii styling variables */
+            border-radius: 6px;
+            /* Light ambient contextual opacity color fill layout */
+            background-color: rgba(0, 255, 136, 0.05);
+            /* Safe layout clearing separation spaces */
+            margin-top: 20px;
+        }
+
+        /* Stylized heading nested inside secure encrypted secret code text wrappers */
+        #secretMessage h3 {
+            /* Cyan accents highlighting successfully cracked code systems */
+            color: #58a6ff;
+            /* Kill top layout padding tracking overlaps */
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="secure-container">
+        <h2>SECURE PORTAL</h2>
+        
+        <form id="authForm">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Agent First Name">
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Agent Last Name">
+            </div>
+
+            <div class="form-group">
+                <label for="zipCode">Zip Code (5 Digits)</label>
+                <input type="text" id="zipCode" name="zipCode" placeholder="e.g. 90210">
+            </div>
+
+            <button type="submit">ACCESS DATABASE</button>
+        </form>
+
+        <div id="warningMessage"></div>
+
+        <div id="secretMessage">
+            <h3>🔓 DECRYPTED STATUS: SUCCESS</h3>
+            <p>The Eagle flies at midnight. Verification Phrase: <strong>"JavaScript security verified."</strong></p>
+        </div>
+    </div>
+
+    <script src="strings.js"></script>
+</body>
+</html>
