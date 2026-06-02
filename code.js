@@ -1,72 +1,88 @@
-/* Author: Chris Garza
-    Date: May 24, 2026
-    Description: Core functional game logic engine providing mathematical randomization and string manipulation.
-*/
+// Tracks the active window interval runtime identifier for clean lifecycle clearing
+let movementIntervalId = null;
 
-/**
- * Main game execution function triggered explicitly via the HTML form submission action.
- * Generates two pseudo-random integers, processes numeric boundaries, and checks conditional branches.
- */
-function playHyperDrive() {
-    // Collect the text string asset values from the secure form callsign field element
-    var callsignInput = document.getElementById("playerCallsign").value;
+// Tracks the current horizontal pixel displacement value of the target asset boundary
+let currentLeftX = 0;
+// Tracks the current vertical pixel displacement value of the target asset boundary
+let currentTopY = 250;
 
-    // Execute a secure math function generating a floating point pseudo-random fractional unit between 0 and 1
-    // Multiply by 6, round down using floor, and add 1 to normalize integers precisely between 1 and 6
-    var plasmaCell1 = Math.floor(Math.random() * 6) + 1;
-    
-    // Execute the identical random logic pipeline independently to generate the second cell output value
-    var plasmaCell2 = Math.floor(Math.random() * 6) + 1;
+// Defines the step distance multiplier for horizontal change velocity per individual frame refresh
+let speedX = 5;
+// Defines the step distance multiplier for vertical change velocity per individual frame refresh
+let speedY = 4;
 
-    // Combine both numerical cell integer outputs together to produce the absolute operational power sum
-    var powerSum = plasmaCell1 + plasmaCell2;
+// Cache references to the vital document nodes to maintain system performance metrics
+const startButtonElement = document.getElementById("startBtn");
+const stopButtonElement = document.getElementById("stopBtn");
+const validationStatusText = document.getElementById("validationStatus");
+const movingMemeElement = document.getElementById("memeImg");
 
-    // Establish a baseline block variable string accumulator to capture structured HTML elements as data logs
-    var logTemplate = "<h4>Active Pilot: " + callsignInput + "</h4>";
-    
-    // Append structured text describing the individual numeric value of the first plasma matrix node roll
-    logTemplate += "Plasma Cell 1 Output: [ " + plasmaCell1 + " ]<br>";
-    
-    // Append structured text describing the individual numeric value of the second plasma matrix node roll
-    logTemplate += "Plasma Cell 2 Output: [ " + plasmaCell2 + " ]<br>";
-    
-    // Append the final computed computational summary value onto our layout presentation stream
-    logTemplate += "Combined System Power Core Sum: <strong>" + powerSum + "</strong><br><br>";
-
-    // Execute primary logic branch checking if the cumulative values match core failure states (7 or 11)
-    if (powerSum === 7 || powerSum === 11) {
-        // Concatenate an explicit losing diagnostic alert text payload onto our layout string builder
-        logTemplate += "<span style='color: #ff6b6b;'> CORE OVERLOAD — CRAPS! System failure, you lose!</span>";
-    }
-    // Conditional logic block checking if rolls are matching pairs and perfectly even numbers via modulus operation
-    else if (plasmaCell1 === plasmaCell2 && plasmaCell1 % 2 === 0) {
-        // Concatenate a winning success string notification onto our main layout target accumulation payload
-        logTemplate += "<span style='color: #51cf66;'> HYPERSPACE JUMP SUCCESSFUL! Dual Even Boosters Active — You Win!</span>";
-    }
-    // Default fallback structural path handling any alternative remaining non-critical output combinations
-    else {
-        // Concatenate a static standard text buffer string reflecting neutral sub-light cruise conditions
-        logTemplate += "<span style='color: #fcc419;'>🛰️ EQUILIBRIUM MAINTAINED. Sub-light cruise achieved — You Pushed!</span>";
-    }
-
-    // Target the primary interface display panel using the global Document Object Model tracking identifier
-    // Rewrite internal innerHTML dynamically with our custom built multi-line status layouts
-    document.getElementById("gameTelemetry").innerHTML = logTemplate;
-
-    // Fire off the required secondary internal parameter calculation utility, feeding it the validated text string
-    generateManifestReceipt(callsignInput);
+// Function bound directly to the HTML start button onclick execution pipeline
+function handleStartClick() {
+    // Passes structural control state parameters to change interactive interface layouts
+    setControlDeckState(true);
+    // Initializes runtime animation routines tracking frame displacement loops
+    startMemeAnimationLoop();
 }
 
-/**
- * Secondary tracking utility function satisfying multi-functional architectural grading configurations.
- * Accepts an explicitly declared parameters wrapper variable and pushes string transformations.
- * @param {string} userToken - Collected identity text pass-through value representing player tracking details.
- */
-function generateManifestReceipt(userToken) {
-    // Construct an automated verification logging check tracking variable string using parameter inputs
-    var operationalReceipt = "System Manifest Verified For Operator: ID_" + userToken.toUpperCase();
-    
-    // Target the secondary layout warning node via standard element identifier tracking methods
-    // Insert the newly generated uppercase confirmation string directly into the viewport innerHTML
-    document.getElementById("statusReadout").innerHTML = operationalReceipt;
+// Function bound directly to the HTML stop button onclick execution pipeline
+function handleStopClick() {
+    // Passes structural control state parameters to restore baseline interface layouts
+    setControlDeckState(false);
+    // Directs global engine to sever interval executions instantly
+    stopMemeAnimationLoop();
+}
+
+// Central processing function to enable/disable button arrays safely to prevent interval duplication
+function setControlDeckState(isAnimating) {
+    // Sets the exact structural disabled properties based on current systemic runtime states
+    startButtonElement.disabled = isAnimating;
+    // Evaluates inverse Boolean operations to activate structural stop buttons correctly
+    stopButtonElement.disabled = !isAnimating;
+
+    // Evaluates conditional parameters to fulfill strict innerHTML user validation messages
+    if (isAnimating) {
+        // Injects dynamic confirmation updates into validation components using innerHTML
+        validationStatusText.innerHTML = "System Tracking Status: <span style='color: #4ade80; font-weight: bold;'>Meme Vector Motion Active!</span>";
+    } else {
+        // Injected alternative string notification detailing precise terminal status confirmations
+        validationStatusText.innerHTML = "System Tracking Status: <span style='color: #f87171;'>Motion Successfully Terminated.</span>";
+    }
+}
+
+// Instantiates active polling loops shifting target variables within target constraints
+function startMemeAnimationLoop() {
+    // Allocates ongoing frame callback loops tracking updates at roughly 60 updates a second
+    movementIntervalId = setInterval(computeNextCoordinateFrame, 16);
+}
+
+// Severs functional window references to freeze tracking vectors instantly
+function stopMemeAnimationLoop() {
+    // Invokes native clearing methods using cached identity reference handles
+    clearInterval(movementIntervalId);
+}
+
+// Vector calculation script updating target element positioning layout variables 
+function computeNextCoordinateFrame() {
+    // Advances horizontal tracker layout parameters by active speed constants
+    currentLeftX += speedX;
+    // Advances vertical tracker layout parameters by active speed constants
+    currentTopY += speedY;
+
+    // Determines if horizontal boundary hits or exceeds client frame viewport widths
+    if (currentLeftX + movingMemeElement.clientWidth >= window.innerWidth || currentLeftX < 0) {
+        // Reverses structural acceleration vectors along horizontal bounds upon wall collision
+        speedX *= -1;
+    }
+
+    // Determines if vertical boundary hits or exceeds client frame viewport heights
+    if (currentTopY + movingMemeElement.clientHeight >= window.innerHeight || currentTopY < 0) {
+        // Reverses structural acceleration vectors along vertical bounds upon wall collision
+        speedY *= -1;
+    }
+
+    // Assigns translated coordinate positions directly to baseline document element styles
+    movingMemeElement.style.left = currentLeftX + "px";
+    // Assigns translated coordinate positions directly to baseline document element styles
+    movingMemeElement.style.top = currentTopY + "px";
 }
