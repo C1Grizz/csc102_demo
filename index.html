@@ -3,36 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - CSC102 Demo</title>
+    <title>Meme Motion Simulator - CSC102</title>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
 
-    <header>
-        <h1>Welcome to My Technology Showcase</h1>
-    </header>
-
-    <nav>
-        <h2>Navigation</h2>
-        <a href="./index.html" style="color: #4dabf7;">Home</a><br>
-        <a href="./boards.html" style="color: #4dabf7;">Boards</a><br>
-    </nav>
-
-    <main>
-        <h2>Home Page Dashboard</h2>
-        <p>This is the central hub of the application. Use the navigation panel to seamlessly toggle between pages.</p>
+    <div style="background: rgba(30, 41, 59, 0.9); border: 2px solid #38bdf8; border-radius: 12px; padding: 25px; width: 400px; margin: 30px auto; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.5); font-family: sans-serif; color: #f8fafc;">
+        <h2 style="color: #38bdf8; margin-top: 0; text-transform: uppercase;">Meme Control Deck</h2>
+        <p style="font-size: 14px; color: #cbd5e1;">Use the form controls below to manipulate the meme image vector pathing.</p>
         
-        <div id="memeImage" style="margin-top: 20px;">
-            <img src="./ballin-cat.gif" alt="Ballin Cat Meme" width="300">
-        </div>
-    </main>
+        <form id="memeControllerForm" onsubmit="return false;">
+            <button type="submit" id="startBtn" onclick="handleStartClick()" style="padding: 10px 20px; background-color: #10b981; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-right: 10px;">Start Motion</button>
+            <button type="submit" id="stopBtn" onclick="handleStopClick()" style="padding: 10px 20px; background-color: #ef4444; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;" disabled>Stop Motion</button>
+        </form>
 
-    <footer>
-        Chris Garza<br>
-        University of Advancing Technology<br>
-        2625 W. Baseline Rd.<br>
-        Tempe, AZ 85283<br>
-    </footer>
+        <div id="validationStatus" style="margin-top: 20px; font-size: 14px; color: #e2e8f0; border-top: 1px solid #475569; padding-top: 15px;">System Tracking Status: <strong>Stationary</strong></div>
+    </div>
 
+    <img id="memeImg" src="ballin-cat.gif" alt="Ballin Cat Meme" style="position: absolute; left: 0px; top: 250px; width: 140px; height: 140px; border: 3px solid #38bdf8; border-radius: 8px; box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);">
+
+    <script src="code.js"></script>
 </body>
 </html>
