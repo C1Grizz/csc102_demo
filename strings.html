@@ -3,200 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Secret Access Portal</title>
+    <title>Creative Palindrome Checker</title>
+    
     <style>
-        /* Creative Element: Retro Cyberpunk / Security Terminal Theme */
+        /* Creative Element 1: Custom typography imported via Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        /* Creative Element 2: Vibrant linear gradient background and responsive centering framework */
         body {
-            /* Dark slate background for a classified, secret agent aesthetic */
-            background-color: #0d1117;
-            /* Modern, clean sans-serif font family for readability */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Center the security terminal container horizontally and vertically */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* Occupy the full viewport height */
-            height: 100vh;
-            /* Remove default browser margins */
+            /* Establish font family styling using Poppins with a clean sans-serif fallback */
+            font-family: 'Poppins', sans-serif;
+            /* Apply a smooth, modern background gradient across the screen canvas */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            /* Stretch the body height to fit the full viewport height boundaries */
+            min-height: 100vh;
+            /* Wipe out default browser edge margins for a flush look */
             margin: 0;
-            /* Base text color (light gray for contrast) */
-            color: #c9d1d9;
+            /* Turn on flexbox container model to align application pieces easily */
+            display: flex;
+            /* Vertically center the content card directly in the middle of the screen */
+            align-items: center;
+            /* Horizontally center the content card directly in the middle of the screen */
+            justify-content: center;
         }
 
-        /* Container styling for the secure login box layout */
-        .secure-container {
-            /* Darker gray background to pop out from the body canvas */
-            background-color: #161b22;
-            /* Add structural interior spacing padding */
-            padding: 30px;
-            /* Soft rounded corners for an excellent user experience */
-            border-radius: 12px;
-            /* A glowing green box shadow signifying a live security gate */
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
-            /* Set a standard uniform width for the login card */
-            width: 350px;
-            /* Center-align headers and terminal status alerts */
+        /* Design parameters for the main interactive visual card component wrapper */
+        .checker-card {
+            /* Give the UI element card a crisp solid white background layer */
+            background-color: #ffffff;
+            /* Pad the internal content safely away from the card component borders */
+            padding: 40px;
+            /* Soften layout card corners with a modern border radius setting */
+            border-radius: 16px;
+            /* Produce a deep floating shadow layer underneath the app interface area */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            /* Constrain width boundaries so elements do not warp on wide screens */
+            max-width: 460px;
+            /* Allow flexible shrinkage while holding structural size scaling rules */
+            width: 100%;
+            /* Center-align text headers inside the block area */
             text-align: center;
-            /* Explicit thin border defining the container edges */
-            border: 1px solid #30363d;
         }
 
-        /* Styling for the main security heading */
-        h2 {
-            /* Neon terminal green color matching the UI style */
-            color: #00ff88;
-            /* Bottom spacing to separate cleanly from inputs */
-            margin-bottom: 20px;
-            /* Slight tracking/letter-spacing for a stylized title look */
-            letter-spacing: 1px;
-        }
-
-        /* Layout structure grouping labels and fields together uniformly */
-        .form-group {
-            /* Left-align specific fields for standard human data input flow */
-            text-align: left;
-            /* Spacing block pushing groups down neatly */
-            margin-bottom: 15px;
-        }
-
-        /* Structural form input label styles */
-        label {
-            /* Force labels onto their own distinct layout line */
-            display: block;
-            /* Padding separation below the label text */
-            margin-bottom: 5px;
-            /* Sleek, small micro-copy sizing */
-            font-size: 14px;
-            /* Muted slate text coloration */
-            color: #8b949e;
-        }
-
-        /* Inputs customized for an interactive user interface */
-        input[type="text"] {
-            /* Force input text fields to take full component width */
-            width: 100%;
-            /* Padding inside the input box for typing comfort */
-            padding: 10px;
-            /* Uniform rounded borders matching container aesthetics */
-            border-radius: 6px;
-            /* Dark embedded inputs fitting the spy theme profile */
-            border: 1px solid #30363d;
-            background-color: #0d1117;
-            /* Crisp white text for reader inputs */
-            color: #fff;
-            /* Prevent input stretching box padding models */
-            box-sizing: border-box;
-            /* Smooth animated transitions on active states */
-            transition: border-color 0.3s ease;
-        }
-
-        /* Interactive focus reaction highlight states */
-        input[type="text"]:focus {
-            /* Bright accent green glows on active selections */
-            border-color: #00ff88;
-            /* Strip default browser outlines away */
-            outline: none;
-        }
-
-        /* Main action execution button styling rules */
-        button {
-            /* Stretch full horizontal layout block */
-            width: 100%;
-            /* Comfortable size target for clicking or touch taps */
-            padding: 12px;
-            /* Strong neon styling choice */
-            background-color: #00ff88;
-            /* Dark font overlay for sharp legal accessibility contrast */
-            color: #0d1117;
-            /* Eliminate standard browser system button styling borders */
-            border: none;
-            /* Match form rounded borders */
-            border-radius: 6px;
-            /* Heavy typography weighting emphasizes structural execution */
-            font-weight: bold;
-            /* Flip pointer indicators on action target areas */
-            cursor: pointer;
-            /* Layout margin space separating fields safely */
-            margin-top: 10px;
-            /* Smooth color adjustments handling */
-            transition: background-color 0.3s ease;
-        }
-
-        /* Hover action visual responses */
-        button:hover {
-            /* Transition to an intensely distinct shade of neon green */
-            background-color: #00e676;
-        }
-
-        /* Custom error message feedback styling canvas target */
-        #warningMessage {
-            /* Vibrant system red indicating validation alert warnings */
-            color: #ff7b72;
-            /* Legible presentation sizes */
-            font-size: 14px;
-            /* Generous padding space clearing structural boundaries */
-            margin-top: 15px;
-            /* Bold highlighting accents */
-            font-weight: 500;
-        }
-
-        /* Classified secret box styling layout variables */
-        #secretMessage {
-            /* Enforce absolute visibility hidden status on initial application load */
-            display: none;
-            /* Interior padding block margins */
-            padding: 15px;
-            /* High visibility dashed neon border wrap layout */
-            border: 2px dashed #00ff88;
-            /* Consistent border radii styling variables */
-            border-radius: 6px;
-            /* Light ambient contextual opacity color fill layout */
-            background-color: rgba(0, 255, 136, 0.05);
-            /* Safe layout clearing separation spaces */
-            margin-top: 20px;
-        }
-
-        /* Stylized heading nested inside secure encrypted secret code text wrappers */
-        #secretMessage h3 {
-            /* Cyan accents highlighting successfully cracked code systems */
-            color: #58a6ff;
-            /* Kill top layout padding tracking overlaps */
+        /* Header element textual styling modifications */
+        h1 {
+            /* Give headings a distinct, commanding purple tone to establish contrast */
+            color: #764ba2;
+            /* Drop top margin limits to keep element structure tight and uniform */
             margin-top: 0;
+        }
+
+        /* Stylized user input data field modifications */
+        input[type="text"] {
+            /* Force the input component container to span the entire form area width */
+            width: 100%;
+            /* Inject padding internally so typed elements do not scrape text walls */
+            padding: 14px;
+            /* Separate input layer items vertically away from text lines */
+            margin: 18px 0;
+            /* Render a smooth boundary frame line around input box states */
+            border: 2px solid #e2e8f0;
+            /* Give input field corners a sleek, rounded curve aesthetic */
+            border-radius: 8px;
+            /* Prevent structural padding changes from breaking component widths */
+            box-sizing: border-box;
+            /* Raise text sizes to make user entries clear and legible */
+            font-size: 16px;
+        }
+
+        /* Modern styled form submission button configurations */
+        button {
+            /* Match button backgrounds to the main purple theme color */
+            background-color: #764ba2;
+            /* Set text color to white for contrast */
+            color: white;
+            /* Remove blocky system button outlines */
+            border: none;
+            /* Pad button internals for a taller clickable area */
+            padding: 14px;
+            /* Elevate structural text font sizes */
+            font-size: 16px;
+            /* Use semi-bold font weights to separate commands from regular text */
+            font-weight: 600;
+            /* Apply consistent border curving traits matching style inputs */
+            border-radius: 8px;
+            /* Alter crosshair icons to pointer indicators to reflect click readiness */
+            cursor: pointer;
+            /* Match form element input sizes exactly */
+            width: 100%;
+        }
+
+        /* Mouse hover interaction styling changes for form submission button */
+        button:hover {
+            /* Deepen background tone shades slightly when users hover over buttons */
+            background-color: #5a3284;
+        }
+
+        /* Layout wrapper zone designed for dynamic feedback and text evaluation displays */
+        #resultDisplay {
+            /* Separate display blocks cleanly from button areas above them */
+            margin-top: 25px;
+            /* Maximize visual response readout fonts */
+            font-size: 18px;
+            /* Apply bold attributes to focus reader attention instantly */
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
 
-    <div class="secure-container">
-        <h2>SECURE PORTAL</h2>
-        
-        <form id="authForm">
-            <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" placeholder="Agent First Name">
-            </div>
+    <div class="checker-card">
+        <h1>Palindrome Checker</h1>
+        <p>Enter a word or phrase below to test if it reads the same forward and backward.</p>
 
-            <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" placeholder="Agent Last Name">
-            </div>
-
-            <div class="form-group">
-                <label for="zipCode">Zip Code (5 Digits)</label>
-                <input type="text" id="zipCode" name="zipCode" placeholder="e.g. 90210">
-            </div>
-
-            <button type="submit">ACCESS DATABASE</button>
+        <form id="palindromeForm" action="javascript:void(0);" onsubmit="executeLoopCycle();">
+            <label id="inputLabel" for="userInput">Enter text:</label>
+            <input type="text" id="userInput" required placeholder="e.g., Radar or Racecar">
+            <button type="submit" id="submitBtn">Check Phrase</button>
         </form>
 
-        <div id="warningMessage"></div>
-
-        <div id="secretMessage">
-            <h3>🔓 DECRYPTED STATUS: SUCCESS</h3>
-            <p>The Eagle flies at midnight. Verification Phrase: <strong>"JavaScript security verified."</strong></p>
-        </div>
+        <div id="resultDisplay"></div>
     </div>
 
-    <script src="strings.js"></script>
+    <script>
+        // Program state tracking flag to monitor whether we are parsing words or waiting for loop choice confirmation
+        var loopDecisionPhase = false;
+
+        // Core controller driving form lifecycle loops without breaking required architecture rules
+        function executeLoopCycle() {
+            // Retrieve a reference point targeting text input DOM elements
+            var inputField = document.getElementById("userInput");
+            // Retrieve a reference point targeting dynamic readout text blocks
+            var displayOutput = document.getElementById("resultDisplay");
+            // Retrieve a reference point targeting form submit buttons
+            var actionButton = document.getElementById("submitBtn");
+            // Retrieve a reference point targeting instructions tracking tags
+            var systemLabel = document.getElementById("inputLabel");
+
+            // Evaluate conditional branch: Are we verifying structural words or tracking exit confirmation prompts?
+            if (loopDecisionPhase === false) {
+                // Read original string inputs from text fields safely
+                var originalText = inputField.value;
+                
+                // Form safety validation check: Block entries containing only blank whitespaces
+                if (originalText.trim() === "") {
+                    // Update innerHTML block with stylized hazard validation indicators
+                    displayOutput.innerHTML = "<span style='color: #e53e3e;'>Error: Please write something before checking!</span>";
+                    // Exit out early to cease function parsing actions
+                    return;
+                }
+
+                // Requirement: Remove spaces using regex and normalize capitalization layers completely
+                var cleanedText = originalText.replace(/\s+/g, '').toLowerCase();
+                // Flip extracted strings by building arrays, reversing lists, and re-binding fragments back
+                var reversedText = cleanedText.split('').reverse().join('');
+
+                // Check condition parameters: Does forward content text line match backward reversed patterns?
+                if (cleanedText === reversedText) {
+                    // Requirement: Inject clean confirmation text outputs via innerHTML controls
+                    displayOutput.innerHTML = "<span style='color: #38a169;'>✔ \"" + originalText + "\" is a palindrome!</span>";
+                } else {
+                    // Requirement: Inject failure alert validation text patterns via innerHTML controls
+                    displayOutput.innerHTML = "<span style='color: #e53e3e;'>✘ \"" + originalText + "\" is NOT a palindrome.</span>";
+                }
+
+                // Flip evaluation logic states to start checking for loop restart prompts on subsequent submissions
+                loopDecisionPhase = true;
+                // Wipe form text areas blank to prepare for the choice entry step
+                inputField.value = "";
+                // Rewrite labels to present the loop continuation option clearly to the user
+                systemLabel.innerHTML = "Do you want to enter another word? (yes/no):";
+                // Swap placeholder notes to direct users on selection inputs
+                inputField.placeholder = "type 'yes' or 'no'";
+                // Mutate button actions visually to direct structural response tasks
+                actionButton.innerHTML = "Submit Choice";
+
+            } else {
+                // Extract decision strings and wipe trailing blanks while converting to lower cases
+                var userResponse = inputField.value.trim().toLowerCase();
+
+                // Branch verification block path: Handle 'yes' responses indicating loop retention
+                if (userResponse === 'yes') {
+                    // Turn off response flag settings to allow standard word parsing arrays again
+                    loopDecisionPhase = false;
+                    // Wipe form field text entries clean
+                    inputField.value = "";
+                    // Revert text indicators back to regular input guidelines
+                    systemLabel.innerHTML = "Enter text:";
+                    // Put original text placeholder instructions back into form properties
+                    inputField.placeholder = "e.g., Radar or Racecar";
+                    // Restore primary action execution verbiage onto buttons
+                    actionButton.innerHTML = "Check Phrase";
+                    // Completely clear existing evaluation readout layers
+                    displayOutput.innerHTML = "";
+                } 
+                // Branch verification block path: Handle 'no' selections indicating a program exit action
+                else if (userResponse === 'no') {
+                    // Break loop cycle execution pipelines completely by closing operation flags
+                    loopDecisionPhase = false;
+                    // Output session closure indicators using innerHTML parameters securely
+                    displayOutput.innerHTML = "<span style='color: #4a5568;'>Application closed. Thank you!</span>";
+                    // Freeze text entry configurations completely to lock downstream processes
+                    inputField.disabled = true;
+                    // Lock actionable command buttons to prevent accidental restarts
+                    actionButton.disabled = true;
+                    // Set final static label tracking message
+                    systemLabel.innerHTML = "Session Completed.";
+                    // Clear out placeholder values completely
+                    inputField.placeholder = "";
+                } 
+                // Catch-all branch safety validator handler logic dealing with corrupted/incorrect inputs
+                else {
+                    // Alert users via innerHTML updates regarding structural parameters required by input boundaries
+                    displayOutput.innerHTML = "<span style='color: #dd6b20;'>Invalid choice! Please type exactly 'yes' or 'no'.</span>";
+                    // Empty the erroneous string out of form inputs to prompt a retry loop pass
+                    inputField.value = "";
+                }
+            }
+        }
+    </script>
 </body>
 </html>
