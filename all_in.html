@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>VIP Poker Lounge - All In</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Target the entire browser body canvas */
+        body {
+            /* Set standard fallback text font */
+            font-family: 'Montserrat', sans-serif;
+            /* CREATIVE ELEMENT 2 (Background): Deep poker-table felt green radial gradient */
+            background: radial-gradient(circle at center, #0e381e 0%, #041209 100%);
+            /* Use Flexbox to center the dashboard on the screen */
+            display: flex;
+            /* Stack flex children vertically */
+            flex-direction: column;
+            /* Center items horizontally */
+            align-items: center;
+            /* Center items vertically */
+            justify-content: center;
+            /* Force the body to fill 100% of the viewport height */
+            min-height: 100vh;
+            /* Strip away default browser margins */
+            margin: 0;
+            /* Set default text color to a clean off-white */
+            color: #f1f1f1;
+        }
+
+        /* Style the main VIP table card container */
+        .poker-table-card {
+            /* Set card background to a dark green velvet tint */
+            background-color: rgba(10, 25, 15, 0.9);
+            /* Apply a metallic gold border */
+            border: 2px solid #d4af37;
+            /* CREATIVE ELEMENT 3 (Aesthetic): Golden outer box-shadow glow */
+            box-shadow: 0 10px 35px rgba(212, 175, 55, 0.25);
+            /* Round the corners of the panel */
+            border-radius: 16px;
+            /* Internal spacing inside the card */
+            padding: 40px;
+            /* Center-align all typography */
+            text-align: center;
+            /* Set a sensible maximum width */
+            max-width: 480px;
+            /* Ensure it scales nicely on mobile screens */
+            width: 85%;
+        }
+
+        /* Style the main VIP header */
+        h1 {
+            /* Apply the imported Google Cinzel luxury font */
+            font-family: 'Cinzel', serif;
+            /* Large prominent sizing */
+            font-size: 2.2rem;
+            /* Metallic gold text color */
+            color: #d4af37;
+            /* Soft golden text glow */
+            text-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+            /* Pull the bottom margin up tight */
+            margin-bottom: 5px;
+            margin-top: 0;
+        }
+
+        /* Style the secondary table descriptor */
+        h2 {
+            /* Smaller, widely-spaced uppercase text */
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            color: #a3b899;
+            margin-bottom: 25px;
+        }
+
+        /* Style the visual pot status tracker */
+        .pot-status {
+            /* Display as an inline pill container */
+            display: inline-block;
+            /* Add horizontal and vertical padding */
+            padding: 8px 20px;
+            /* Dark inset background */
+            background-color: #020a05;
+            /* Default status color to a warm gold */
+            color: #ffc107;
+            /* Gold-tinted subtle border */
+            border: 1px solid #ffc107;
+            /* Fully rounded pill edges */
+            border-radius: 25px;
+            /* Font size adjustment */
+            font-size: 0.9rem;
+            /* Bold font weight */
+            font-weight: 600;
+            /* Bottom spacing */
+            margin-bottom: 25px;
+        }
+
+        /* Style the interactive Casino Chip push button */
+        .gold-btn {
+            /* Premium gold metallic CSS gradient */
+            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            /* High contrast dark text */
+            color: #111;
+            /* Remove default browser button borders */
+            border: none;
+            /* Generous click target dimensions */
+            padding: 18px 36px;
+            /* Emphasized font sizing */
+            font-size: 1.1rem;
+            /* Use the bold Cinzel font for the button */
+            font-family: 'Cinzel', serif;
+            /* Heavy font weight */
+            font-weight: 800;
+            /* Slightly rounded button corners */
+            border-radius: 8px;
+            /* Show pointer hand cursor on hover */
+            cursor: pointer;
+            /* Smooth tactile scaling animation */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Define the hover state for the gold button */
+        .gold-btn:hover {
+            /* Slightly scale the button up when hovered */
+            transform: scale(1.04);
+            /* Cast a bright golden aura drop-shadow */
+            box-shadow: 0 0 25px rgba(252, 246, 186, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="poker-table-card">
+        
+        <h1>HIGH ROLLER VIP</h1>
+        
+        <h2>TABLE 4 • NO LIMIT HOLD 'EM</h2>
+        
+        <div id="potTracker" class="pot-status">ACTION: WAITING ON YOU</div>
+
+        <p style="color: #c2d4bb; font-size: 0.95rem; line-height: 1.5; margin-bottom: 25px;">
+            The river card has been dealt. The main pot sits at $250,000. Look the dealer in the eyes.
+        </p>
+
+        <img src="https://images.unsplash.com/photo-1540569014015-19a7be504e3a?q=80&w=500&auto=format&fit=crop" alt="Poker Felt Cards" style="width: 100%; height: 170px; object-fit: cover; border-radius: 8px; border: 1px solid #555; margin-bottom: 25px;">
+
+        <audio id="chipSound" src="freesound_community-allinpushchips-96121.mp3"></audio>
+
+        <button id="allInButton" class="gold-btn">PUSH ALL-IN</button>
+
+    </div>
+
+    <script src="casino.js"></script>
+
+</body>
+</html>
