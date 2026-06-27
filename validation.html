@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Input Validation</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="validation.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul style="display: flex; list-style: none; gap: 15px; padding: 10px; background: #1a1a1a;">
+                <li><a href="./index.html">🏠 Landing Page</a></li>
+                <li><a href="./meme.html">Meme</a></li>
+                <li><a href="./game.html">Game</a></li>
+                <li><a href="./strings.html">Palindrome</a></li>
+                <li><a href="./validation.html">User Validation</a></li>
+                <li><a href="./objectives.html">Objectives</a></li>
+                <li><a href="./table.html">Table</a></li>
+                <li><a href="./uat-space.html">UAT Space</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main style="max-width: 400px; margin: 50px auto; padding: 20px; background: #1e1e1e; border-radius: 8px;">
+        <h2>Security Authorization Portal</h2>
+        <form onsubmit="return validateForm(event)">
+            <label>First Name:</label><br>
+            <input type="text" id="fName" required style="width: 100%; margin-bottom: 10px;"><br>
+            
+            <label>Last Name:</label><br>
+            <input type="text" id="lName" required style="width: 100%; margin-bottom: 10px;"><br>
+            
+            <label>Badge Number (3 Digits):</label><br>
+            <input type="number" id="badge" required placeholder="100-999" style="width: 100%; margin-bottom: 15px;"><br>
+            
+            <button type="submit" style="padding: 10px 20px; background: #38bdf8; border: none; font-weight: bold; cursor: pointer;">Authorize</button>
+        </form>
+        <div id="valOutput" style="margin-top: 20px; font-weight: bold;"></div>
+    </main>
+</body>
+</html>
